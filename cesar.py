@@ -24,7 +24,7 @@ import argparse
 
 def encrypt(string, b, n, alfabeto, result):
     for letra_string in string:
-        if letra_string in alfabeto:
+        if letra_string.lower() in alfabeto:
             for index, letra_alfabeto in enumerate(alfabeto):
                 if letra_string.lower()==letra_alfabeto.lower():
                         M = index
@@ -37,12 +37,13 @@ def encrypt(string, b, n, alfabeto, result):
 
 def decrypt(enc_string, b, n, alfabeto, result):
     for letra_string in enc_string:
-        for index, letra_alfabeto in enumerate(alfabeto):
-            if letra_string.lower()==letra_alfabeto.lower():
-                    C = index
-                    M = (C-b) % n
-                    M = str(alfabeto[M])
-                    result = result + M
+        if letra_string.lower() in alfabeto:
+            for index, letra_alfabeto in enumerate(alfabeto):
+                if letra_string.lower()==letra_alfabeto.lower():
+                        C = index
+                        M = (C-b) % n
+                        M = str(alfabeto[M])
+                        result = result + M
         else:
             result = result + letra_string
     print(result)

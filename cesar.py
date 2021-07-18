@@ -62,7 +62,7 @@ def parser():
             else:
                 return ['decrypt', args.string, args.desplazamientos]
         else:
-            print('Ingrese la cantidad de desplazamientos a utilizar: -r [number]')
+            print('Ingrese la cantidad de desplazamientos a utilizar.')
     else:
         parser.print_help()
 
